@@ -2,7 +2,6 @@ package com.dzakyhdr.alertdialog
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.dzakyhdr.alertdialog.databinding.ActivityMainBinding
@@ -10,7 +9,9 @@ import com.dzakyhdr.alertdialog.databinding.CustomDialogLayoutBinding
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -70,5 +71,11 @@ class MainActivity : AppCompatActivity() {
 
             dialog.show()
         }
+
+        binding.btnFragmentDialog.setOnClickListener {
+            val dialog = DialogFragment()
+            dialog.show(supportFragmentManager, "exit")
+        }
+
     }
 }
